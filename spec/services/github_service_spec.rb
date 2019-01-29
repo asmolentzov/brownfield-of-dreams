@@ -16,6 +16,6 @@ describe GithubService do
     
     expect(repos.count).to eq(5)
     expect(repos.first).to have_key(:name)
-    expect(repos.first).to have_key(:url)
+    expect(repos.first).to have_key(:html_url)
   end
 end
