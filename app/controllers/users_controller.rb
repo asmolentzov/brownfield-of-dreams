@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @repos = GithubService.new(current_user).repositories_by_user
+    results = GithubService.new(current_user).repositories_by_user
+    
+    @repos = results.map do |raw_repo|
+      Repository.create(raw_repo)
+    end
   end
 
   def new
