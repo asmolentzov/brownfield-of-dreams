@@ -1,6 +1,6 @@
 require 'rails_helper' 
 
-describe Respository do
+describe Repository do
   it 'exists' do
     attributes = {}
     repo = Repository.new(attributes)
