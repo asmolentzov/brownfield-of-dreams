@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   def show
-    results = GithubService.new(current_user).repositories_by_user
-    
-    @repos = results.map do |raw_repo|
-      Repository.new(raw_repo)
-    end
+    @facade = GithubFacade.new(current_user)
   end
 
   def new
