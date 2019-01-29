@@ -6,13 +6,10 @@ class GithubFacade
   
   def repos(quantity)
     results = GithubService.new(@user).repositories_by_user
-    
-    results.map.with_index do |raw_repo, index|
-      if index < 5
-        Repository.new(raw_repo)
-      else 
-        nil
-      end
-    end.compact
+    repositories = []
+    quantity.times do |raw_repo|
+      repositories << Repository.new(results.shift)
+    end
+    repositories
   end
 end
