@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @repos = GithubService.new(current_user).repositories_by_user
   end
 
   def new
