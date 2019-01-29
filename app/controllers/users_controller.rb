@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     results = GithubService.new(current_user).repositories_by_user
     
     @repos = results.map do |raw_repo|
-      Repository.create(raw_repo)
+      Repository.new(raw_repo)
     end
   end
 

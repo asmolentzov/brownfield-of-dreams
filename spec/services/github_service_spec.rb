@@ -9,7 +9,7 @@ describe GithubService do
   end
   
   it 'can return repositories' do
-    user = create(:user, token: "46c979e122e1b33877b889d6c4ef66849e59c7d1")
+    user = create(:user, token: ENV['GITHUB_TOKEN'])
     github_service = GithubService.new(user)
     
     repos = github_service.repositories_by_user

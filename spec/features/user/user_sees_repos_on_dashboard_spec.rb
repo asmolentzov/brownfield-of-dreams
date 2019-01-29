@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'As a logged in user' do
   describe 'When I visit my dashboard' do
-    it 'should show me a list of GitHub repositories' do
-      user = create(:user)
+    it 'should show me a list of GitHub repositories', :vcr do
+      user = create(:user, token: ENV['GITHUB_TOKEN'])
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       
       visit dashboard_path
@@ -15,7 +15,7 @@ describe 'As a logged in user' do
       end
       
       within first(".repository") do
-        expect(page).to have_css(".name")
+        expect(page).to have_css(".name-link")
       end
     end
   end
