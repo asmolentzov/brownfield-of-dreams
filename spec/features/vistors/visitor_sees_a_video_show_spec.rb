@@ -23,4 +23,22 @@ describe 'visitor sees a video show' do
     expect(current_path).to eq(tutorial_path(tutorial))
     expect(page).to have_content(tutorial.title)
   end
+  it 'visitor sees tooltip when they hover over bookmark' do
+    tutorial = create(:tutorial)
+    video = create(:video, tutorial_id: tutorial.id)
+
+    visit '/'
+
+    click_on tutorial.title
+
+    expect(current_path).to eq(tutorial_path(tutorial))
+    expect(page).to have_content(video.title)
+    expect(page).to_not have_link("Bookmark")
+    within '.tooltip' do
+      expect(page).to have_css('.tooltiptext')
+    end
+    within '.tooltiptext' do
+      expect(page).to have_content('User must login to bookmark videos.')
+    end
+  end
 end
