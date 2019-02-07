@@ -4,13 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to dashboard_path
+      create_session
     else
-      flash[:error] = "Looks like your email or password is invalid"
-      render :new
+      login_error
     end
   end
 
@@ -19,4 +16,19 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+  
+  def user
+    @_user = User.find_by(email: params[:session][:email])
+  end
+  
+  def create_session
+    session[:user_id] = user.id
+    redirect_to dashboard_path
+  end
+  
+  def login_error
+    flash[:error] = "Looks like your email or password is invalid"
+    render :new
+  end
 end
