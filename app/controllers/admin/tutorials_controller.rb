@@ -4,13 +4,10 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   def create
-    @tutorial = Tutorial.new(create_tutorial_params)
-    if @tutorial.save
-      flash[:success]= "Successfully created tutorial."
-      redirect_to tutorial_path(@tutorial.id)
+    if new_tutorial.save
+      create_tutorial
     else
-      flash[:error]= "Unable to create tutorial"
-      render :new
+      tutorial_error
     end 
   end
 
@@ -28,6 +25,21 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   private
+  
+  def new_tutorial
+    @_tutorial ||= Tutorial.new(create_tutorial_params)
+  end
+  
+  def create_tutorial
+    flash[:success]= "Successfully created tutorial."
+    redirect_to tutorial_path(new_tutorial.id)
+  end
+  
+  def tutorial_error
+    @tutorial = new_tutorial
+    flash[:error]= "Unable to create tutorial"
+    render :new
+  end
 
   def tutorial_params
     params.require(:tutorial).permit(:tag_list)
