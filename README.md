@@ -1,6 +1,6 @@
 # Brownfield Of Dreams: Turing Tutorials
 
-Brownfield of Dreams: Turing Tutorials is a paired student project for Module 3 of the Back-End Engineering Program at the [Turing School of Software & Design](https://turing.io). The project specifications can be found [here](https://github.com/turingschool-examples/brownfield-of-dreams). Up until now, projects have been primarily been built from scratch: "greenfield" projects. This project presents us with an existing code base to which we are asked to add features: a "brownfield" project. 
+Brownfield of Dreams: Turing Tutorials is a paired student project for Module 3 of the Back-End Engineering Program at the [Turing School of Software & Design](https://turing.io). The project specifications can be found [here](https://github.com/turingschool-examples/brownfield-of-dreams). Up until now, projects have been primarily been built from scratch: "greenfield" projects. This project presents us with an existing Ruby on Rails code base to which we are asked to add features: a "brownfield" project. 
 You can see our beautifully deployed site [here on Heroku](https://limitless-brook-80568.herokuapp.com/). 
 
 ![User Dashboard Page](readme_images/dashboard_page.png)
@@ -85,7 +85,7 @@ ENV[GITHUB_TOKEN]
 ## Authors
 **[Maddie Jones](https://github.com/maddyg91)**
 
-**[Anna Smolentzov](https://github.com/maddyg91)**
+**[Anna Smolentzov](https://github.com/asmolentzov)**
 
 ## Acknowledgements
 We would like to thank our fantastic Mod 3 instructors [Mike](https://github.com/mikedao) and [Sal](https://github.com/s-espinosa) for your help with this project and in general at Turing!
