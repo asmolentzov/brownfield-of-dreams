@@ -16,6 +16,7 @@ Users can connect to their GitHub account using OAuth. Once connected, they see 
 Emails are enabled using [Mailgun](https://www.mailgun.com/). Emails may be sent from the site in two ways: 
 * When a user creates an account, an authorization email is sent for them to validate their account.
 * A user who is connected to GitHub can invite friends from GitHub to join the Turing Tutorials site by entering their friend's GitHub username into a form. If the friend has a public email on GitHub, our site sends them an email invitation. 
+* **Note** Currently the site is using a Mailgun sandbox, which means that email addresses must be pre-authorized with Mailgun. If you would like to test the email features of this site, please contact us to add your email address. 
 
 ![Invitation Email](readme_images/invitation_email.png)
 
