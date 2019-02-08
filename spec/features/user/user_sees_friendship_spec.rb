@@ -12,7 +12,7 @@ describe 'As a logged in user' do
 
       within '.github' do
         within first('.follower') do
-          expect(page).to have_link('Add as Friend')
+          expect(page).to have_button('Add as Friend')
         end
       end
     end
@@ -28,7 +28,7 @@ describe 'As a logged in user' do
       expect(page).to_not have_content('Friends')
 
       within first('.follower') do
-        click_link 'Add as Friend'
+        click_button 'Add as Friend'
       end
 
       expect(current_path).to eq(dashboard_path)
@@ -50,7 +50,7 @@ describe 'As a logged in user' do
 
       within '.github' do
         within first('.following') do
-          expect(page).to have_link("Add as Friend")
+          expect(page).to have_button("Add as Friend")
         end
       end
     end
@@ -66,7 +66,7 @@ describe 'As a logged in user' do
       expect(page).to_not have_content('Friends')
 
       within first('.following') do
-        click_link 'Add as Friend'
+        click_button 'Add as Friend'
       end
 
       expect(current_path).to eq(dashboard_path)
@@ -89,7 +89,7 @@ describe 'As a logged in user' do
       following.delete
 
       within first('.following') do
-        click_link 'Add as Friend'
+        click_button 'Add as Friend'
       end
 
       expect(current_path).to eq(dashboard_path)
